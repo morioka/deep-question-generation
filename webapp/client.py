@@ -4,15 +4,23 @@ import argparse
 
 import sys
 
+parser = argparse.ArgumentParser('deep-question-generatoin api client')
+parser.add_argument('--endpoint', default='http://127.0.0.1:8000/generate')
+parser.add_argument('--format', choices=['csv', 'tsv'], default='csv')
+args = parser.parse_args()
 
-url = 'http://127.0.0.1:8000/generate'
+url = args.endpoint
 
 headers = {
     'Content-Type': 'application/json',
 }
 
-for i in sys.stdin:
-    answer, context = [ ii.strip() for ii in i.split(',', 1) ]  # CSV
+for line in sys.stdin:
+    if args.format == 'csv':
+        parts = line.split(',', 1)  # csv
+    else:
+        parts = line.split('\t', 1)  # tsv
+    answer, context = [part.strip() for part in parts]
 
     data = {
         'answer_context': [
