@@ -1,4 +1,6 @@
-'''bash
+# webapp and client
+
+~~~
 % ./start.sh
 INFO:     Started server process [8979]
 INFO:     Waiting for application startup.
@@ -22,4 +24,4 @@ acchusは何の神ですか?
 小説が直接本として出版されることを何と言いますか?
 クモの神性は何ですか?
 露出を自動的に制御し、被写体の明度に応じた露出値を得る写真機は何と呼ばれていますか?
-'''
+~~~
