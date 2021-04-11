@@ -4,7 +4,7 @@ from ml_api.ml import QuestionGenerationAPI
 # https://qiita.com/irisu-inwl/items/9d49a14c1c67391565f8
 
 def main():
-    st.title('deep-question-generatoin sample')
+    st.title('deep-question-generation sample')
 
     '''
     this is a [t5-base-japanese-question-generation](https://huggingface.co/sonoisa/t5-base-japanese-question-generation) sample.
