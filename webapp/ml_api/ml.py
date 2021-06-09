@@ -48,14 +48,14 @@ class QuestionGenerationAPI:
                 num_beams=4,  # ビームサーチの探索幅
                 # diversity_penalty=1.0,  # 生成結果の多様性を生み出すためのペナルティパラメータ
                 # num_beam_groups=4,  # ビームサーチのグループ
-                num_return_sequences=1,  # 生成する文の数
+                num_return_sequences=4,  # 生成する文の数
                 )
 
             # 生成された問題文のトークン列を文字列に変換する。
             outputs = [self.tokenizer.decode(ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
                         for ids in tokenized_outputs.sequences]
 
-            outputs = outputs[0]  # top-1のみ
+            # outputs = outputs[0] # top-1のみ
             generated_questions.append(outputs)
 
         return generated_questions
