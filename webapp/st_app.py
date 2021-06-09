@@ -13,7 +13,7 @@ def generate(ml, answer_context_list):
     return ml.generate_questions(answer_context_list)
 
 def main():
-    st.title('deep-question-generatoin sample')
+    st.title('deep-question-generation sample')
 
     '''
     this is a [t5-base-japanese-question-generation](https://huggingface.co/sonoisa/t5-base-japanese-question-generation) sample.
