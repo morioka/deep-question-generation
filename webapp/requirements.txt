@@ -1,7 +1,14 @@
-transformers==4.4.2
+transformers
 sentencepiece
 torch
 tqdm
 fastapi
 pydantic
 uvicorn
+
+sumy
+tinysegmenter
+spacy
+ginza
+ja_ginza
+
