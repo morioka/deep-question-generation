@@ -138,14 +138,13 @@ def ner_sentences(nlp, doc_text):
     ne = 'Product'  # 指定がなければ 'Product' とみなす
 
     # NHKバラエティ番組『LIFE！～人生に捧げるコント～』
-    # token = LIFE！～人生に捧げるコント～
+    # token = [LIFE, ！, ～, 人生, に, 捧げる, コント, ～]
     # ne_token = [NHK, バラエティ, 番組]
     # focus_type = 『
 
     for t, n, f in zip(tokens, ne_tokens, focus_types):
         if f in ['『']:  # ニュース記事で新たな固有表現を導入する典型
             if len(n) > 0:
-                print(n)
                 ne = ne_dict[n[-1].text]  # カッコ直前のトークン列の末尾を代表NEと仮定
             else:
                 None    # 省略の場合、直前の固有表現を引き継ぐと想定
@@ -157,7 +156,7 @@ def ner_sentences(nlp, doc_text):
     
     # 再度NER
     if len(patterns) > 0:
-        print("add: ", patterns)
+        print("add entity-ruler patterns: ", patterns)
         entity_ruler = nlp.get_pipe('entity_ruler')
         entity_ruler.add_patterns(patterns)
         doc = nlp(doc_text)
